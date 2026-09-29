@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="StreetCaught: spot real cars, scan them into cards, race them.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>StreetCaught</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -419,6 +418,24 @@ section.blk.alt .step,section.blk.alt .stat,section.blk.alt .gauge,section.blk.a
 .cc-band.cc-wide{-webkit-mask-image:linear-gradient(110deg,transparent 38.5%,rgba(0,0,0,.35) 43.5%,#000 50%,rgba(0,0,0,.35) 56.5%,transparent 61.5%);mask-image:linear-gradient(110deg,transparent 38.5%,rgba(0,0,0,.35) 43.5%,#000 50%,rgba(0,0,0,.35) 56.5%,transparent 61.5%)}
 .logo-img{height:38px;width:auto;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))}
 footer .logo-img{height:30px}
+
+/* quest board */
+.qb{max-width:640px;border:1px solid var(--line);border-radius:16px;background:var(--asphalt);padding:18px;display:grid;gap:12px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.qb-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;font:800 1.4rem/1 var(--display);text-transform:uppercase;padding:2px 4px 6px}
+.qb-t{font:600 .72rem/1 var(--mono);letter-spacing:.08em;color:var(--ink-3)}
+.qb-q{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--asphalt-2)}
+.qb-d{font:600 .68rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--c);border:1px solid var(--c);border-radius:999px;padding:6px 9px}
+.qb-m{display:grid;gap:6px;min-width:0}
+.qb-m b{font-weight:600}
+.qb-bar{height:6px;border-radius:99px;background:var(--asphalt-3);overflow:hidden}
+.qb-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--sodium),#FFC46B);border-radius:99px}
+.qb-p{font:600 .72rem/1 var(--mono);color:var(--ink-3)}
+.qb-r{font:600 .72rem/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);text-align:right;max-width:9rem}
+.qb-r.ok{color:#0D131D;background:var(--sodium);padding:8px 10px;border-radius:8px}
+@media (max-width:520px){.qb-q{grid-template-columns:1fr auto}.qb-d{grid-column:1/-1;justify-self:start}}
+footer .foot-mail{font:600 .85rem/1 var(--mono);color:var(--sodium);text-decoration:none;padding:10px 14px;border:1px solid rgba(255,138,61,.4);border-radius:999px}
+footer .foot-mail:hover{background:var(--sodium-soft)}
+footer .foot-legal{flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;padding-top:16px;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -436,6 +453,7 @@ footer .logo-img{height:30px}
       <li><a href="#campaign">Campaign</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#friends">Friends</a></li>
+      <li><a href="#quests">Quests</a></li>
       <li><a href="#workshop">Workshop</a></li>
       <li><a href="#shop">Shop</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -476,7 +494,7 @@ footer .logo-img{height:30px}
     </div>
     <div class="grid3">
       <div class="step"><span class="n">1</span><h3>Spot</h3><p>Walk, drive, wait at a red light. Anything on four wheels in the real world can be caught: a daily commuter, a weekend roadster, a supercar parked downtown.</p></div>
-      <div class="step"><span class="n">2</span><h3>Scan</h3><p>Point the StreetCaught camera at the car. The app identifies the model and generation and turns it into a card with its real specs, its rarity and a random finish.</p></div>
+      <div class="step"><span class="n">2</span><h3>Scan</h3><p>Take the photo with the StreetCaught camera and frame the car. An AI identifies the make and model, then the card lands in your garage with its real specs, its rarity and a random finish. When it can't tell two generations apart, you pick the right one: you're the one looking at the car.</p></div>
       <div class="step"><span class="n">3</span><h3>Race</h3><p>Pick five cards for five events. You don't drive: the race is simulated from each car's stats, the track and the surface. Your job is choosing the right car for each event.</p></div>
     </div>
   </div>
@@ -531,7 +549,7 @@ footer .logo-img{height:30px}
         <p class="note" style="margin:0;padding:12px 16px">237 models in the catalog are classics today.</p>
       </div>
     </div>
-    <p class="callout">Where the real production figure is unknown, the card carries a small <b>EST.</b> badge. Estimated entries never land above Rare: the top tiers are reserved for cars whose numbers have been checked by hand.</p>
+    <p class="callout">Where the real production figure is unknown, the card carries a small <b>EST.</b> badge. Estimated entries never land above Rare: the top tiers are reserved for the 259 cars whose numbers have been checked by hand. A figure that only counts US sales, not worldwide production, can lift a card to Rare at most.</p>
   </div>
 </section>
 
@@ -691,14 +709,55 @@ footer .logo-img{height:30px}
       <div class="step"><span class="n">2</span><h3>Pick your hand</h3><p>Your cars travel with their upgrades and parts, and with their finish: a holo card arrives as that same holo, same pattern number.</p></div>
       <div class="step"><span class="n">3</span><h3>Send the code</h3><p>Your friend pastes it in Friends → Join a game. Both phones compute exactly the same result from the same code, so nobody can argue about who won.</p></div>
     </div>
-    <p class="callout">The Power cap replaces both players' own limit. A level 5 player and a level 40 player race with exactly the same budget.</p>
+    <p class="callout">The Power cap replaces both players' own limit, and it can go up to 500, higher than anyone reaches by leveling. A level 5 player and a level 40 player race with exactly the same budget, and it's the only place in the game where the five most expensive cars fit in one hand.</p>
+    <p class="note">Want your friend to see your actual photos? Tap <b>Send with photos</b> instead: the challenge goes out as a small .streetcaught file that opens straight in the app. Cards that came from a pack show their silhouette.</p>
   </div>
 </section>
 
-<section class="blk alt" id="workshop">
+<section class="blk alt" id="quests">
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">Rule 7 · The Workshop</p>
+      <p class="eyebrow">Rule 7 · Daily quests</p>
+      <h2>Three quests, every day</h2>
+      <p class="lede">Quests are the first tab of the app. Every day at midnight UTC you get three: one easy, one medium, one hard. There's always something you can finish in twenty minutes, and always one worth going out for.</p>
+    </div>
+    <div class="qb" aria-label="Example quest board">
+      <div class="qb-top"><span>Daily quests</span><span class="qb-t">New quests in 07:42:10</span></div>
+      <div class="qb-q"><span class="qb-d" style="--c:var(--r-uncommon)">Easy</span><div class="qb-m"><b>Catch 2 cars</b><div class="qb-bar"><i style="width:100%"></i></div><span class="qb-p">2 / 2</span></div><span class="qb-r ok">Claim · 200 coins</span></div>
+      <div class="qb-q"><span class="qb-d" style="--c:var(--r-rare)">Medium</span><div class="qb-m"><b>Catch 3 AWD cars</b><div class="qb-bar"><i style="width:33%"></i></div><span class="qb-p">1 / 3</span></div><span class="qb-r">Random part</span></div>
+      <div class="qb-q"><span class="qb-d" style="--c:var(--r-epic)">Hard</span><div class="qb-m"><b>Win 3 races in a row</b><div class="qb-bar"><i style="width:66%"></i></div><span class="qb-p">2 / 3</span></div><span class="qb-r">1,600 coins</span></div>
+    </div>
+
+    <div class="grid3" style="margin-top:40px">
+      <div class="step"><span class="eyebrow">Easy</span><h3>Just play</h3><p>Catch 2 cars, or run 2 races. Whatever you were going to do today anyway.</p></div>
+      <div class="step"><span class="eyebrow">Medium</span><h3>Look around</h3><p>Catch 3 cars of one body style (SUVs, coupes, pickups…) or one drivetrain (RWD, AWD, FWD, 4WD). Or catch 5 cars, or run 6 races.</p></div>
+      <div class="step"><span class="eyebrow">Hard</span><h3>Go hunting</h3><p>Catch 3 of one make, 2 cars Uncommon or better or Rare or better, 4 of one drivetrain, or win 3 races in a row. A loss resets that last one to zero.</p></div>
+    </div>
+
+    <h3 style="margin-top:56px;margin-bottom:18px">You see the reward before you start</h3>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Quest</th><th class="num">Coins</th><th class="num">Common</th><th class="num">Uncommon</th><th class="num">Rare</th><th class="num">Epic</th></tr></thead>
+        <tbody>
+          <tr><td><b>Easy</b></td><td class="num">200</td><td class="num">80%</td><td class="num">17%</td><td class="num">3%</td><td class="num">—</td></tr>
+          <tr><td><b>Medium</b></td><td class="num">650</td><td class="num">52%</td><td class="num">32%</td><td class="num">13%</td><td class="num">3%</td></tr>
+          <tr><td><b>Hard</b></td><td class="num">1,600</td><td class="num">26%</td><td class="num">34%</td><td class="num">28%</td><td class="num">12%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Each quest pays either coins or a random part, and the card tells you which before you start. Part odds climb with difficulty. Quests never give a Legendary: that stays the reward for finishing the campaign.</p>
+
+    <div class="grid2" style="margin-top:40px">
+      <div class="step"><span class="eyebrow">Rerolls</span><h3>Three a day</h3><p>A quest you can't finish, like "Catch 3 BMW" in a neighborhood without any, can be swapped. Watch an ad for three new quests, up to three times a day. New quests start from zero.</p></div>
+      <div class="step"><span class="eyebrow">Stacking</span><h3>One car, two quests</h3><p>A single catch counts for every quest it fits. An AWD Subaru moves "Catch 5 cars" and "Catch 3 AWD cars" at the same time. Makes in quests are ones you see everywhere: Toyota, Honda, Ford, BMW and the like.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="workshop">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Rule 8 · The Workshop</p>
       <h2>Upgrade, merge, fit parts</h2>
       <p class="lede">Duplicates aren't wasted. Catch the same model again, any generation, and it becomes fuel for the Workshop. Everything is stored per model: if you own three Civics, you sacrifice two to upgrade "the Civic", and that's the one you race.</p>
     </div>
@@ -747,10 +806,10 @@ footer .logo-img{height:30px}
   </div>
 </section>
 
-<section class="blk" id="shop">
+<section class="blk alt" id="shop">
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">Rule 8 · The Shop</p>
+      <p class="eyebrow">Rule 9 · The Shop</p>
       <h2>Three parts a day</h2>
       <p class="lede">The Shop puts three parts on the shelf every 24 hours, each from a different family. Don't like them? Watch an ad to reroll, up to three times a day. That counter is separate from your gauges, so an ad watched for fuel never costs you a reroll.</p>
     </div>
@@ -773,7 +832,7 @@ footer .logo-img{height:30px}
 <section class="blk" id="progress">
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">Rule 9 · Energy &amp; fair play</p>
+      <p class="eyebrow">Rule 10 · Energy &amp; fair play</p>
       <h2>Two gauges, one honest camera</h2>
       <p class="lede">Scanning and racing each draw from their own gauge. Both fill back up to the top once a day.</p>
     </div>
@@ -781,7 +840,7 @@ footer .logo-img{height:30px}
       <div class="gauge">
         <h3>Photos</h3>
         <div class="cells"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
-        <dl><dt>Maximum</dt><dd class="num">10</dd><dt>Refill</dt><dd>Full refill every 24 h</dd><dt>Rewarded ad</dt><dd>+3</dd><dt>Used for</dt><dd>Scanning a car</dd></dl>
+        <dl><dt>Maximum</dt><dd class="num">10</dd><dt>Refill</dt><dd>Full refill every 24 h</dd><dt>Rewarded ad</dt><dd>+3</dd><dt>Used for</dt><dd>Sending a photo to the AI</dd></dl>
       </div>
       <div class="gauge">
         <h3>Fuel</h3>
@@ -789,7 +848,13 @@ footer .logo-img{height:30px}
         <dl><dt>Maximum</dt><dd class="num">10</dd><dt>Refill</dt><dd>Full refill every 24 h</dd><dt>Rewarded ad</dt><dd>+3</dd><dt>Used for</dt><dd>Starting a match</dd></dl>
       </div>
     </div>
-    <p class="note">Up to 5 rewarded ads per day. A scan that gets refused never costs a photo.</p>
+    <p class="note">Up to 5 rewarded ads per day. Taking, framing or discarding a photo is free. A charge goes the moment the AI answers, whatever it says, because every answer costs a real call. If the photo never reaches it (no signal, server down, unreadable file), nothing is charged.</p>
+
+    <h3 style="margin-top:56px;margin-bottom:18px">Garage and workshop space</h3>
+    <div class="grid2">
+      <div class="step"><span class="eyebrow">Garage</span><h3>100 cars</h3><p>When the garage is full, the scan stops before anything is sent, so you never lose a charge to a full garage. Delete a card to make room: the copy is gone for good, but the car stays in your Dex.</p></div>
+      <div class="step"><span class="eyebrow">Workshop</span><h3>100 parts</h3><p>A full workshop can't take a new part from a quest or a race reward. Delete parts you'll never fit. If the last copy is fitted to a car, the game warns you first that the car loses it.</p></div>
+    </div>
 
     <h3 style="margin-top:56px;margin-bottom:18px">Leveling up</h3>
     <div class="grid3">
@@ -818,16 +883,19 @@ footer .logo-img{height:30px}
     <div class="faq">
       <details open><summary>When can I play?</summary><p>StreetCaught is in active development and runs on test devices today. It will launch on iPhone first, in English, with French and Spanish to follow.</p></details>
       <details><summary>Can I scan a photo I found online or took earlier?</summary><p>No. Cards only come from the in-app camera, live. The whole point of a card is that you saw that car yourself.</p></details>
-      <details><summary>Why was my scan refused?</summary><p>Usually one of three reasons: the photo looks like a screen or a print, the image was already used, or you already scanned that car in the same spot in the last 24 hours. A refused scan never costs a photo.</p></details>
+      <details><summary>Why was my scan refused?</summary><p>Usually one of four reasons: the photo looks like a screen or a print, the car isn't in the catalog yet, the AI wasn't sure enough (try another angle), or you already scanned that car in the same spot in the last 24 hours. Once the AI has answered, the scan uses a charge, even on a refusal. If the photo never got to it, nothing is charged.</p></details>
+      <details><summary>The AI picked the wrong car. What now?</summary><p>Tap "Not this car". You can pick another generation of the same model, keep the card anyway, or try another photo. When the AI can't tell generations apart, it asks you to choose from up to five instead of guessing.</p></details>
       <details><summary>Does a holo or gold card race faster?</summary><p>No. Finishes are purely cosmetic. Races depend on the car's stats, its upgrades, the event and the surface.</p></details>
-      <details><summary>How do you know how many cars were built?</summary><p>Hand-checked entries use real production figures for each generation. For the rest, the figure is estimated and the card shows an EST. badge. Estimated cars never go above Rare.</p></details>
-      <details><summary>What happens if I delete a card?</summary><p>The card is gone, but the car stays marked as seen in your Dex forever.</p></details>
+      <details><summary>How do you know how many cars were built?</summary><p>259 entries are checked by hand against real, worldwide production figures for each generation. For the rest, the figure is estimated and the card shows an EST. badge. Estimated cars, and cars known only by their US sales, never go above Rare.</p></details>
+      <details><summary>What happens if I delete a card?</summary><p>The card is gone, but the car stays marked as seen in your Dex forever. There's no trash to restore it from. The garage holds 100 cars, so deleting is how you make room.</p></details>
+      <details><summary>How do daily quests work?</summary><p>Three a day, one easy, one medium, one hard, reset at midnight UTC. Each shows its reward up front: coins or a random part, up to Epic. Stuck on one? Watch an ad for three new quests, up to three times a day.</p></details>
       <details><summary>Do parts really make a car faster?</summary><p>Yes. Parts change the car's real physics (power, weight, downforce, braking, tire grip), and the race simulation uses those numbers directly. A fully tuned car is roughly 11% faster for a Common and 20% for a Legendary. The right tires for the surface matter as much as raw power.</p></details>
       <details><summary>How do I get a Legendary part?</summary><p>A guaranteed one for winning level 10 of the United Kingdom, the last level of the campaign, with three stars. An event podium can also roll one. Ordinary races and the Shop stop at Epic.</p></details>
       <details><summary>What's the point of duplicates?</summary><p>Duplicates of the same model, any generation, are merged in the Workshop to upgrade that car: 1, then 2, then 3 duplicates plus coins per level. Each new copy is also another roll at a rare finish.</p></details>
       <details><summary>Why can't I put my five best cars in one hand?</summary><p>Every car has a Power value and your hand has a Power budget tied to your level: 250 at level 1, +5 per level, up to 450 at level 41. Five top cars won't fit. Spend the budget where the event needs it most.</p></details>
-      <details><summary>Can I race my friends?</summary><p>Yes. In Friends, set the rules and your hand, and send the code the game gives you. Your friend pastes it and races it on their phone. No account needed.</p></details>
+      <details><summary>Can I race my friends?</summary><p>Yes. In Friends, set the rules and your hand, and send the code the game gives you. Your friend pastes it and races it on their phone. No account needed. Send it as a file instead and your photos travel with the cards.</p></details>
       <details><summary>Does the app share my location?</summary><p>Only an approximate zone is ever shown to other players, never an exact position.</p></details>
+      <details><summary>How do I contact you?</summary><p>Write to <a href="mailto:contact@streetcaught.com">contact@streetcaught.com</a>. Bug reports, a car missing from the catalog, a wrong production figure, or just an idea: everything lands in the same inbox.</p></details>
       <details><summary>Is it free?</summary><p>Yes, free to download and play. Optional rewarded ads refill your gauges, and coin packs will be available to buy.</p></details>
     </div>
   </div>
@@ -845,7 +913,11 @@ footer .logo-img{height:30px}
 <footer>
   <div class="wrap">
     <a class="logo" href="#top" style="font-size:1.2rem"><img class="logo-img" alt="" aria-hidden="true"><span>Street<b>Caught</b></span></a>
-    <span>Car names are used to identify real models; StreetCaught isn't affiliated with any manufacturer.</span>
+    <a class="foot-mail" href="mailto:contact@streetcaught.com">contact@streetcaught.com</a>
+    <div class="foot-legal">
+      <span>Car names are used to identify real models; StreetCaught isn't affiliated with any manufacturer.</span>
+      <span>© 2026 StreetCaught. All rights reserved.</span>
+    </div>
   </div>
 </footer>
 </div>

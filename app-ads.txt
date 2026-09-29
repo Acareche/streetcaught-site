@@ -1,0 +1,27 @@
+# StreetCaught — vendeurs autorises (app-ads.txt)
+#
+# A QUOI SERT CE FICHIER.
+#
+# Il dit publiquement qui a le droit de vendre la publicite de l'application.
+# Un acheteur qui recoit une offre « StreetCaught » vient lire ce fichier :
+# s'il n'y trouve pas le vendeur, il suppose une fraude et n'enchere pas.
+# Sans ce fichier, les offres ne sont pas refusees — elles sont simplement
+# moins nombreuses et moins cheres, ce qui ne se voit dans aucun message
+# d'erreur.
+#
+# OU IL DOIT VIVRE, ET C'EST LA SEULE REGLE QUI COMPTE.
+#
+# A la RACINE du domaine inscrit comme site du developpeur dans la fiche de
+# l'App Store, donc ici https://streetcaught.com/app-ads.txt . Le robot
+# d'AdMob ne cherche nulle part ailleurs : un fichier dans un sous-dossier,
+# ou sur un autre domaine que celui de la fiche, n'est jamais lu.
+#
+# Il faut donc aussi que la fiche App Store porte exactement ce domaine.
+#
+# LA LIGNE CI-DESSOUS VIENT DE TON COMPTE ADMOB. Le numero `pub-...` est
+# l'identifiant d'editeur, le meme que dans `ca-app-pub-2119214027700762`.
+# AdMob affiche la ligne exacte a coller dans Applications > app-ads.txt :
+# compare-la a celle-ci avant de publier, c'est un coup d'oeil et ca evite
+# un fichier qui a l'air correct et ne verifie rien.
+
+google.com, pub-2119214027700762, DIRECT, f08c47fec0942fa0

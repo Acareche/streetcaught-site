@@ -1376,7 +1376,7 @@ const RACE=(function(){
 RACE.init();
 
 
-// Hero : autoroute de nuit. Couche fixe (ciel, ville, chaussee) dessinee une
+// Hero : autoroute de nuit. Couche fixe (ciel, chaussee) dessinee une
 // fois par taille d'ecran ; seules les lumieres bougent. Sprites pre-rendus,
 // aucun shadowBlur : l'animation reste fluide meme si la page charge encore.
 (function(){
@@ -1404,15 +1404,10 @@ RACE.init();
   function buildBg(){
     bg=document.createElement('canvas');bg.width=W*dpr;bg.height=H*dpr;const g=bg.getContext('2d');g.setTransform(dpr,0,0,dpr,0,0);
     // ciel
-    const sky=g.createLinearGradient(0,0,0,vy);sky.addColorStop(0,'rgba(13,19,29,0)');sky.addColorStop(1,'rgba(40,30,40,.55)');
+    const sky=g.createLinearGradient(0,0,0,vy);sky.addColorStop(0,'rgba(13,19,29,0)');sky.addColorStop(.8,'rgba(40,30,40,.4)');sky.addColorStop(1,'rgba(40,30,40,.12)');
     g.fillStyle=sky;g.fillRect(0,0,W,vy);
     const halo=g.createRadialGradient(vx,vy,0,vx,vy,W*.6);halo.addColorStop(0,'rgba(255,150,80,.16)');halo.addColorStop(.35,'rgba(255,120,60,.05)');halo.addColorStop(1,'rgba(255,120,60,0)');
     g.fillStyle=halo;g.fillRect(0,0,W,H);
-    // ville au loin : silhouettes et quelques fenetres
-    let x=vx-W*.55;const sk=[];while(x<vx+W*.55){const w=rnd(14,46),hh=rnd(8,58)*(1-Math.abs(x-vx)/(W*.7));sk.push([x,w,Math.max(4,hh)]);x+=w+rnd(0,6)}
-    g.fillStyle='#0A0F17';for(const[bx,bw,bh]of sk)g.fillRect(bx,vy-bh,bw,bh+1);
-    for(const[bx,bw,bh]of sk)for(let wy=vy-bh+4;wy<vy-3;wy+=5)for(let wx=bx+3;wx<bx+bw-3;wx+=5)
-      if(Math.random()<.08){g.fillStyle=Math.random()<.7?'rgba(255,196,120,.55)':'rgba(170,200,255,.45)';g.fillRect(wx,wy,1.6,1.6)}
     // chaussee
     const a=P(-2.6,0,FAR),b=P(2.6,0,FAR),c=P(2.6,0,NEAR),d=P(-2.6,0,NEAR);
     const road=g.createLinearGradient(0,vy,0,H);road.addColorStop(0,'rgba(26,32,44,.2)');road.addColorStop(1,'rgba(20,26,36,.9)');

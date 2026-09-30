@@ -594,7 +594,7 @@ section.blk.alt{background:rgba(19,27,40,.55)}
         <fieldset><legend>View</legend><div class="opts" id="optView"></div></fieldset>
         <div id="patBox" hidden>
           <p class="pat" id="patText"></p>
-          <div class="opts" style="margin-top:10px"><button type="button" id="rollPat">Roll another pattern</button></div>
+          <div class="opts" style="margin-top:10px"><button type="button" id="rollPat">Roll another pattern</button><button type="button" id="rollFoil">Roll another foil</button></div>
         </div>
         <div>
           <p class="eyebrow" style="color:var(--ink-3);margin-bottom:12px">Finish odds per scan</p>
@@ -606,7 +606,7 @@ section.blk.alt{background:rgba(19,27,40,.55)}
 
     <div class="grid3" style="margin-top:56px">
       <div class="step"><span class="eyebrow">Tier colour</span><h3>The background wears the tier</h3><p>Carbon, Forged and Holo cards take the colour of the car's tier. A Legendary holo glows gold, a Mythic forged card has red resin flakes. Gold and Silver keep their brushed metal.</p></div>
-      <div class="step"><span class="eyebrow">Holo foil</span><h3>A second roll on top</h3><p>One card in a hundred that already has a finish also gets a holo foil laid over it: a Gold Holo, a Carbon Holo. It keeps its own background and adds the foil that lights up when the light passes. On a Minimal card it shows as a ★.</p></div>
+      <div class="step"><span class="eyebrow">Holo foil</span><h3>A second roll on top</h3><p>One card in a hundred that already has a finish also gets a holo foil laid over it: a Gold Holo, a Carbon Holo. It keeps its own background and adds the foil that lights up when the light passes. That foil can be any of the seven holo patterns (Liquid, Chrome, Sheen, Glitter, Dots, Rings or Shards), each with its own number. On a Minimal card it shows as a ★.</p></div>
       <div class="step"><span class="eyebrow">Light</span><h3>Tilt to see it</h3><p>A holo foil only shows inside the band of light that crosses the card when you tilt your phone. Carbon is a material: you see it even in the shade, and the light adds a shine on top. Holo patterns carry a number from 0 to 999, so no two copies shine the same way.</p></div>
     </div>
 
@@ -1028,7 +1028,7 @@ const EFFECT_VEIL={normal:0,argent:.4,or:.34,carbone:.22,forge:.22,holo:0};
 const HOLO_FAMILIES=['liquide','chrome','nappe','paillettes','pois','cercles','eclats','carbone','forge'];
 const EFFECT_FAMILIES={holo:['liquide','chrome','nappe','paillettes','pois','cercles','eclats'],carbone:['carbone'],forge:['forge']};
 const foilLook=id=>holoLook(EFFECT_FAMILIES.holo[hashSeed('foil:'+id)%7],hashSeed('foilseed:'+id)%1000);
-const FAMILY_LABEL={liquide:'Liquid',chrome:'Chrome',nappe:'Sheet',paillettes:'Glitter',pois:'Dots',cercles:'Rings',eclats:'Shards',carbone:'Twill',forge:'Forged'};
+const FAMILY_LABEL={liquide:'Liquid',chrome:'Chrome',nappe:'Sheen',paillettes:'Glitter',pois:'Dots',cercles:'Rings',eclats:'Shards',carbone:'Twill',forge:'Forged'};
 const HOLO_MATERIAL=['carbone','forge'];
 const HOLO_MOTIF=['paillettes','pois','cercles','eclats'];
 function holoLook(family,seed){
@@ -1098,7 +1098,8 @@ const BRUSH_TEX="assets/4cd8cbfafe89.png";
 const WOOD_TEX="assets/794ce62f27c9.png";
 const HALO=[{out:8,width:4,alpha:'0D'},{out:5,width:3,alpha:'1F'},{out:3,width:2,alpha:'38'},{out:1,width:2,alpha:'5C'}];
 
-function carCardHTML(car,{effect='normal',variant='full',holoFamily,holoSeed=0,foil=false}={}){
+function carCardHTML(car,{effect='normal',variant='full',holoFamily,holoSeed=0,foil=false,foilFamily,foilSeed=0}={}){
+  const foilLk=foilFamily?holoLook(foilFamily,foilSeed):foilLook(car.id);
   const isClassic=!!car.classic, bw=isClassic?7:3;
   const border=isClassic?WOOD_BORDER:RARITY_BORDER[car.rarity];
   const tint=RARITY_COLOR[car.rarity], veil=EFFECT_VEIL[effect];
@@ -1125,7 +1126,7 @@ function carCardHTML(car,{effect='normal',variant='full',holoFamily,holoSeed=0,f
       ${veil>0?`<div class="cc-abs" style="background:#0B0E12;opacity:${veil}"></div>`:''}
       ${effect!=='normal'&&!pattern&&!(foil&&canFoil(effect))?metalLayer(W,1,effect):''}
       ${look?holoLayer(look,W,tint):''}
-      ${foil&&canFoil(effect)?holoLayer(foilLook(car.id),W,tint):''}
+      ${foil&&canFoil(effect)?holoLayer(foilLk,W,tint):''}
       <div class="cc-photo" style="height:${artBox}px;margin:-${pad}px -${pad}px 0">
         ${CAR_PHOTO[car.id]?`<img class="cc-shot" src="${CAR_PHOTO[car.id]}" alt="${car.make} ${car.model}">`:``}<div class="cc-pbox" style="height:${photoH}px">${CAR_PHOTO[car.id]?``:`<div class="cc-car" style="width:${artW}px;height:${artW/2.4}px;-webkit-mask-image:url(${CAR_IMG[car.body]||CAR_IMG.berline});mask-image:url(${CAR_IMG[car.body]||CAR_IMG.berline})"></div>`}</div>
         <i class="cc-voile" style="height:${Math.min(artBox,Math.round(titreH*1.7))}px"></i>
@@ -1145,7 +1146,7 @@ function carCardHTML(car,{effect='normal',variant='full',holoFamily,holoSeed=0,f
         <div class="cc-mrow"><span class="cc-sl">MSRP</span><span class="cc-sv">${money(car.prices.msrpUsd)}</span></div>
         <div class="cc-mrow"><span class="cc-sl">Market</span><span class="cc-sv">${money(car.prices.marketLowUsd)}–${money(car.prices.marketHighUsd)}</span></div>
       </div>`:''}
-      ${effect!=='normal'?`<div class="cc-top" style="clip-path:inset(0 0 calc(100% - ${artBox}px) 0)">${look?holoLayer(look,W,tint,true):''}${foil&&canFoil(effect)?holoLayer(foilLook(car.id),W,tint,true):''}${!pattern&&!(foil&&canFoil(effect))?metalLayer(W,1):''}</div>`:''}
+      ${effect!=='normal'?`<div class="cc-top" style="clip-path:inset(0 0 calc(100% - ${artBox}px) 0)">${look?holoLayer(look,W,tint,true):''}${foil&&canFoil(effect)?holoLayer(foilLk,W,tint,true):''}${!pattern&&!(foil&&canFoil(effect))?metalLayer(W,1):''}</div>`:''}
       <div class="cc-footer">
         <span class="cc-fl">${mini&&(effect!=='normal'||isClassic)?`<span class="cc-badge cc-bs">${effect!=='normal'?effectShort(effect,foil):CLASSIC_SHORT}</span>`:''}${!mini?`<span class="cc-rar">${RARITY_LABEL[car.rarity]}</span>`:''}
         ${car.estimated&&!mini?'<span class="cc-est">EST.</span>':''}</span>
@@ -1202,7 +1203,8 @@ gal.innerHTML=G.map((g,i)=>`<figure><div class="cc-host" id="g${i}"></div><figca
 G.forEach((g,i)=>mountCard(document.getElementById('g'+i),byId(g[0]),{effect:g[1],variant:'mini'}));
 // lab
 const LAB_CARS=['honda-civic-11','mazda-mx5-nd','toyota-gr86-2','aston-martin-db11-cab-2019','honda-s2000-ap1','toyota-supra-a80','bmw-e30-m3','lexus-lfa','ferrari-f40'];
-const lab={car:'bmw-e30-m3',effect:'carbone',view:'full',foil:'off',fam:'carbone',seed:661};
+const lab={car:'bmw-e30-m3',effect:'carbone',view:'full',foil:'off',fam:'carbone',seed:661,ffam:'paillettes',fseed:204};
+function rollFoil(){const pool=EFFECT_FAMILIES.holo;lab.ffam=pool[Math.floor(Math.random()*pool.length)];lab.fseed=Math.floor(Math.random()*1000)}
 function rollPattern(){const pool=EFFECT_FAMILIES[lab.effect];if(!pool)return;lab.fam=pool[Math.floor(Math.random()*pool.length)];lab.seed=Math.floor(Math.random()*1000)}
 function opts(id,items,key,after){
   const box=document.getElementById(id);
@@ -1212,16 +1214,23 @@ function opts(id,items,key,after){
 function refreshLab(){
   const pool=EFFECT_FAMILIES[lab.effect];
   if(pool&&!pool.includes(lab.fam))rollPattern();
-  mountCard(document.getElementById('labCard'),byId(lab.car),{effect:lab.effect,variant:lab.view,holoFamily:lab.fam,holoSeed:lab.seed,foil:lab.foil==='on'&&canFoil(lab.effect)});
+  mountCard(document.getElementById('labCard'),byId(lab.car),{effect:lab.effect,variant:lab.view,holoFamily:lab.fam,holoSeed:lab.seed,foil:lab.foil==='on'&&canFoil(lab.effect),foilFamily:lab.ffam,foilSeed:lab.fseed});
   opts('optCar',LAB_CARS.map(id=>{const c=byId(id);return{v:id,html:`<span class="dot" style="--c:${RARITY_COLOR[c.rarity]}"></span>${c.make} ${c.model}${c.classic?' <small class="muted">CLASSIC</small>':''}${c.estimated?' <small class="muted">EST.</small>':''}`}}),'car');
   opts('optFx',EFFECT_ODDS.map(([e])=>({v:e,html:EFFECT_LABEL[e]})),'effect');
   opts('optView',[{v:'full',html:'Full'},{v:'mini',html:'Minimal'}],'view');
   opts('optFoil',[{v:'off',html:'No foil'},{v:'on',html:'Holo foil'}],'foil');
   document.getElementById('foilBox').hidden=!canFoil(lab.effect);
-  const pb=document.getElementById('patBox');pb.hidden=!pool;
-  if(pool){const lk=holoLook(lab.fam,lab.seed);document.getElementById('patText').textContent=`${FAMILY_LABEL[lab.fam]} #${lk.seed}`+(lk.tier!=='standard'?` · ${lk.tier==='gem'?'Gem':'Rare'} cut`:'')}
+  const withFoil=lab.foil==='on'&&canFoil(lab.effect);
+  const pb=document.getElementById('patBox');pb.hidden=!pool&&!withFoil;
+  const cut=lk=>lk.tier!=='standard'?` · ${lk.tier==='gem'?'Gem':'Rare'} cut`:'';
+  const parts=[];
+  if(pool){const lk=holoLook(lab.fam,lab.seed);parts.push(`${FAMILY_LABEL[lab.fam]} #${lk.seed}${cut(lk)}`)}
+  if(withFoil){const lk=holoLook(lab.ffam,lab.fseed);parts.push(`Foil: ${FAMILY_LABEL[lab.ffam]} #${lk.seed}${cut(lk)}`)}
+  document.getElementById('patText').textContent=parts.join('  +  ');
+  document.getElementById('rollPat').hidden=!pool;document.getElementById('rollFoil').hidden=!withFoil;
 }
 document.getElementById('rollPat').onclick=()=>{rollPattern();refreshLab()};
+document.getElementById('rollFoil').onclick=()=>{rollFoil();refreshLab()};
 refreshLab();
 document.getElementById('odds').innerHTML=EFFECT_ODDS.map(([e,w])=>`<div class="odd"><span>${EFFECT_LABEL[e]}</span><span class="t"><i style="width:${w}%"></i></span><b>${w}%</b></div>`).join('');
 

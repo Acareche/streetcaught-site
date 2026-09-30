@@ -465,6 +465,15 @@ nav.top ul.nav-main{overflow:visible;align-items:center;gap:22px}
 body{background:radial-gradient(90% 60% at 15% 0%,rgba(162,89,255,.10),transparent 60%) fixed,radial-gradient(90% 60% at 90% 100%,rgba(255,138,61,.10),transparent 60%) fixed,var(--asphalt)}
 #dust{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
 section.blk.alt{background:rgba(19,27,40,.55)}
+.faq-search{display:flex;gap:10px;max-width:640px}
+.faq-search input{flex:1;min-width:0;font:500 1rem var(--body);color:var(--ink);background:var(--asphalt);border:1px solid var(--line);border-radius:12px;padding:14px 16px;outline:none}
+.faq-search input:focus{border-color:var(--sodium)}
+.faq-search button{font:700 .95rem var(--body);background:var(--sodium);color:#0D131D;border:0;border-radius:12px;padding:0 18px;cursor:pointer}
+.faq-top{display:grid;gap:10px;margin-top:22px;max-width:640px}
+.faq-top a{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--asphalt);color:var(--ink);text-decoration:none;font-weight:600}
+.faq-top a span{color:var(--sodium)}
+.faq-top a:hover{border-color:var(--sodium)}
+.faq-all{font-weight:700;text-decoration:none}
 </style>
 </head>
 <body>
@@ -480,7 +489,7 @@ section.blk.alt{background:rgba(19,27,40,.55)}
         <button class="dd-btn" type="button" aria-expanded="false" aria-controls="ddGame">Game <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="dd-panel" id="ddGame" hidden><div class="dd-col"><p class="dd-h">Collect</p><a href="#rarity"><b>Rarity</b><span>Tiers set by real production</span></a><a href="#cards"><b>Card finishes</b><span>Holo, gold, silver and more</span></a></div><div class="dd-col"><p class="dd-h">Race</p><a href="#racing"><b>Racing</b><span>Five events, simulated</span></a><a href="#campaign"><b>Campaign</b><span>Six countries, ten levels each</span></a><a href="#events"><b>Events</b><span>Two new tournaments every Monday</span></a><a href="#friends"><b>Friends</b><span>Challenge with a code</span></a></div><div class="dd-col"><p class="dd-h">Progress</p><a href="#quests"><b>Quests &amp; series</b><span>Three a day, 57 long-term goals</span></a><a href="#workshop"><b>Workshop</b><span>Upgrades and parts</span></a><a href="#shop"><b>Shop</b><span>Three parts a day</span></a><a href="#progress"><b>Energy & fair play</b><span>Gauges, storage, rules</span></a></div></div>
       </li>
-      <li class="hide-sm"><a href="#faq">FAQ</a></li>
+      <li class="hide-sm"><a href="faq/index.html">FAQ</a></li>
       <li><a class="nav-support" href="support/index.html">Support</a></li>
     </ul>
   </div>
@@ -939,28 +948,15 @@ section.blk.alt{background:rgba(19,27,40,.55)}
   <div class="wrap">
     <div class="head">
       <p class="eyebrow">Questions</p>
-      <h2>FAQ</h2>
+      <h2>Got a question?</h2>
+      <p class="lede">125 answers, searchable, on their own page.</p>
     </div>
-    <div class="faq">
-      <details open><summary>When can I play?</summary><p>StreetCaught is in active development and runs on test devices today. It will launch on iPhone first, in English, with French and Spanish to follow.</p></details>
-      <details><summary>Can I scan a photo I found online or took earlier?</summary><p>No. Cards only come from the in-app camera, live. The whole point of a card is that you saw that car yourself.</p></details>
-      <details><summary>Why was my scan refused?</summary><p>Usually one of four reasons: the photo looks like a screen or a print, the car isn't in the catalog yet, the AI wasn't sure enough (try another angle), or you already scanned that car in the same spot in the last 24 hours. Once the AI has answered, the scan uses a charge, even on a refusal. If the photo never got to it, nothing is charged.</p></details>
-      <details><summary>The AI picked the wrong car. What now?</summary><p>Tap "Not this car". You can pick another generation of the same model, keep the card anyway, or try another photo. When the AI can't tell generations apart, it asks you to choose from up to five instead of guessing.</p></details>
-      <details><summary>Does a holo or gold card race faster?</summary><p>No. Finishes are purely cosmetic. Races depend on the car's stats, its upgrades, the event and the surface.</p></details>
-      <details><summary>How do you know how many cars were built?</summary><p>259 entries are checked by hand against real, worldwide production figures for each generation. For the rest, the figure is estimated and the card shows an EST. badge. Estimated cars, and cars known only by their US sales, never go above Rare.</p></details>
-      <details><summary>What happens if I delete a card?</summary><p>The card is gone, but the car stays marked as seen in your Dex forever. There's no trash to restore it from. The garage holds 100 cars, so deleting is how you make room. Mark a card as a favourite or lock it and it can't be deleted by mistake.</p></details>
-      <details><summary>Is there a light mode?</summary><p>Yes. In Settings you can switch between dark and light, pick an accent colour (the game keeps it readable on either theme), and choose metric or imperial units.</p></details>
-      <details><summary>What are series?</summary><p>Long-term collections in the Quests tab: brands, model lines, rarities, body styles, countries and exact checklists like every Corvette generation. They never expire, have several tiers, and each tier pays coins and XP. Every car you have ever scanned counts, even ones you deleted.</p></details>
-      <details><summary>How do daily quests work?</summary><p>Three a day, one easy, one medium, one hard, reset at midnight UTC. Each shows its reward up front: coins or a random part, up to Epic. Stuck on one? Watch an ad for three new quests, up to three times a day.</p></details>
-      <details><summary>Do parts really make a car faster?</summary><p>Yes. Parts change the car's real physics (power, weight, downforce, braking, tire grip), and the race simulation uses those numbers directly. A fully tuned car is roughly 11% faster for a Common and 20% for a Legendary. The right tires for the surface matter as much as raw power.</p></details>
-      <details><summary>How do I get a Legendary part?</summary><p>A guaranteed one for winning level 10 of the United Kingdom, the last level of the campaign, with three stars. An event podium can also roll one. Ordinary races and the Shop stop at Epic.</p></details>
-      <details><summary>What's the point of duplicates?</summary><p>Duplicates of the same model, any generation, are merged in the Workshop to upgrade that car: 1, then 2, then 3 duplicates plus coins per level. Each new copy is also another roll at a rare finish.</p></details>
-      <details><summary>Why can't I put my five best cars in one hand?</summary><p>Every car has a Power value and your hand has a Power budget tied to your level: 250 at level 1, +5 per level, up to 450 at level 41. Five top cars won't fit. Spend the budget where the event needs it most.</p></details>
-      <details><summary>Can I race my friends?</summary><p>Yes. In Friends, set the rules and your hand, and send the code the game gives you. Your friend pastes it and races it on their phone. No account needed. Send it as a file instead and your photos travel with the cards.</p></details>
-      <details><summary>Does the app share my location?</summary><p>No. Location is optional and only marks roughly where you caught a car on your own capture map. It stays on your phone. See the <a href="privacy/index.html">privacy policy</a>.</p></details>
-      <details><summary>How do I contact you?</summary><p>Write to <a href="mailto:contact@streetcaught.com">contact@streetcaught.com</a>, or see the <a href="support/index.html">support page</a> for quick fixes. Bug reports, a car missing from the catalog, a wrong production figure, or just an idea: everything lands in the same inbox.</p></details>
-      <details><summary>Is it free?</summary><p>Yes, free to download and play. Optional rewarded ads refill your gauges, and coin packs will be available to buy.</p></details>
-    </div>
+    <form class="faq-search" action="faq/index.html" method="get" role="search">
+      <input name="q" type="search" placeholder="Search: refused scan, holo, fuel, friends…" aria-label="Search the FAQ">
+      <button type="submit">Search</button>
+    </form>
+    <div class="faq-top"><a href="faq/index.html#when-can-i-play">When can I play?<span aria-hidden="true">→</span></a><a href="faq/index.html#is-it-free">Is it free?<span aria-hidden="true">→</span></a><a href="faq/index.html#why-was-my-scan-refused">Why was my scan refused?<span aria-hidden="true">→</span></a><a href="faq/index.html#can-i-scan-a-photo-i-found-online-or-took-earlier">Can I scan a photo I found online or took earlier?<span aria-hidden="true">→</span></a><a href="faq/index.html#does-a-holo-or-gold-card-race-faster">Does a holo or gold card race faster?<span aria-hidden="true">→</span></a></div>
+    <p style="margin-top:18px"><a class="faq-all" href="faq/index.html">See all 125 questions →</a></p>
   </div>
 </section>
 
@@ -976,7 +972,7 @@ section.blk.alt{background:rgba(19,27,40,.55)}
 <footer>
   <div class="wrap">
     <a class="logo" href="#top" style="font-size:1.2rem"><img class="logo-img" alt="" aria-hidden="true"><span>Street<b>Caught</b></span></a>
-    <div class="foot-links"><a href="privacy/index.html">Privacy</a><a href="support/index.html">Support</a><a class="foot-mail" href="mailto:contact@streetcaught.com">contact@streetcaught.com</a></div>
+    <div class="foot-links"><a href="faq/index.html">FAQ</a><a href="privacy/index.html">Privacy</a><a href="support/index.html">Support</a><a class="foot-mail" href="mailto:contact@streetcaught.com">contact@streetcaught.com</a></div>
     <div class="foot-legal">
       <span>Car names are used to identify real models; StreetCaught isn't affiliated with any manufacturer.</span>
       <span>© 2026 StreetCaught. All rights reserved.</span>

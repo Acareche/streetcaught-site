@@ -476,6 +476,28 @@ section.blk.alt{background:rgba(19,27,40,.55)}
 .faq-all{font-weight:700;text-decoration:none}
 .qb{margin-left:auto;margin-right:auto}
 .faq-search,.faq-top{margin-left:auto;margin-right:auto}
+
+.cat-box{max-width:760px;margin:0 auto}
+.cat-search{display:flex;gap:10px}
+.cat-search input{flex:1;min-width:0;font:500 1.05rem var(--body);color:var(--ink);background:var(--asphalt);border:1px solid var(--line);border-radius:12px;padding:15px 16px;outline:none}
+.cat-search input:focus{border-color:var(--sodium)}
+.cat-search input::-webkit-search-cancel-button{filter:invert(.6)}
+.cat-try{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px;color:var(--ink-3);font-size:.9rem}
+.cat-try button,.cat-f button{font:600 .85rem var(--body);color:var(--ink-2);background:transparent;border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer}
+.cat-try button:hover,.cat-f button:hover{border-color:var(--sodium);color:var(--ink)}
+.cat-f{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.cat-f button[aria-pressed="true"]{border-color:var(--c,var(--sodium));color:var(--ink);box-shadow:inset 0 0 0 1px var(--c,var(--sodium))}
+.cat-meta{margin:18px 0 10px;font:600 .8rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.cat-list{display:grid;gap:8px;list-style:none;margin:0;padding:0}
+.cat-list li{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:13px 16px;border:1px solid var(--line);border-radius:12px;background:var(--asphalt)}
+.cat-list b{display:block;color:var(--ink)}
+.cat-list small{display:block;color:var(--ink-3);font-size:.86rem;margin-top:2px}
+.cat-list mark{background:none;color:var(--sodium)}
+.cat-list .sw{font-size:.9rem;white-space:nowrap;flex:none}
+.cat-empty{padding:18px;border:1px dashed var(--line);border-radius:12px;color:var(--ink-2)}
+.cat-more{margin-top:12px;font:700 .95rem var(--body);background:transparent;color:var(--sodium);border:1px solid var(--line);border-radius:12px;padding:12px;width:100%;cursor:pointer}
+.cat-more:hover{border-color:var(--sodium)}
+@media (max-width:560px){.cat-list li{align-items:flex-start}.cat-list .sw{font-size:.8rem}}
 </style>
 </head>
 <body>
@@ -489,7 +511,7 @@ section.blk.alt{background:rgba(19,27,40,.55)}
       <li class="hide-sm"><a href="#how">How it works</a></li>
       <li class="dd">
         <button class="dd-btn" type="button" aria-expanded="false" aria-controls="ddGame">Game <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="dd-panel" id="ddGame" hidden><div class="dd-col"><p class="dd-h">Collect</p><a href="#rarity"><b>Rarity</b><span>Tiers set by real production</span></a><a href="#cards"><b>Card finishes</b><span>Holo, gold, silver and more</span></a></div><div class="dd-col"><p class="dd-h">Race</p><a href="#racing"><b>Racing</b><span>Five events, simulated</span></a><a href="#campaign"><b>Campaign</b><span>Six countries, ten levels each</span></a><a href="#events"><b>Events</b><span>Two new tournaments every Monday</span></a><a href="#friends"><b>Friends</b><span>Challenge with a code</span></a></div><div class="dd-col"><p class="dd-h">Progress</p><a href="#quests"><b>Quests &amp; series</b><span>Three a day, 57 long-term goals</span></a><a href="#workshop"><b>Workshop</b><span>Upgrades and parts</span></a><a href="#shop"><b>Shop</b><span>Three parts a day</span></a><a href="#progress"><b>Energy & fair play</b><span>Gauges, storage, rules</span></a></div></div>
+        <div class="dd-panel" id="ddGame" hidden><div class="dd-col"><p class="dd-h">Collect</p><a href="#catalog"><b>Catalog search</b><span>Is your car in the game?</span></a><a href="#rarity"><b>Rarity</b><span>Tiers set by real production</span></a><a href="#cards"><b>Card finishes</b><span>Holo, gold, silver and more</span></a></div><div class="dd-col"><p class="dd-h">Race</p><a href="#racing"><b>Racing</b><span>Five events, simulated</span></a><a href="#campaign"><b>Campaign</b><span>Six countries, ten levels each</span></a><a href="#events"><b>Events</b><span>Two new tournaments every Monday</span></a><a href="#friends"><b>Friends</b><span>Challenge with a code</span></a></div><div class="dd-col"><p class="dd-h">Progress</p><a href="#quests"><b>Quests &amp; series</b><span>Three a day, 57 long-term goals</span></a><a href="#workshop"><b>Workshop</b><span>Upgrades and parts</span></a><a href="#shop"><b>Shop</b><span>Three parts a day</span></a><a href="#progress"><b>Energy & fair play</b><span>Gauges, storage, rules</span></a></div></div>
       </li>
       <li class="hide-sm"><a href="faq/index.html">FAQ</a></li>
       <li><a class="nav-support" href="support/index.html">Support</a></li>
@@ -507,7 +529,7 @@ section.blk.alt{background:rgba(19,27,40,.55)}
       <div class="status">
         <span class="chip live">In development</span>
         <span class="chip">iOS first</span>
-        <span class="chip num">3,079 cars in the catalog</span>
+        <span class="chip num">3,169 cars in the catalog</span>
       </div>
     </div>
     <div class="vf hero-vf" id="heroVf" aria-live="polite">
@@ -582,10 +604,30 @@ section.blk.alt{background:rgba(19,27,40,.55)}
             <tr><td><b>DeLorean DMC-12</b></td><td class="num">1983</td><td><span class="sw" style="--c:#FF2A1C">Mythic</span></td></tr>
           </tbody>
         </table>
-        <p class="note" style="margin:0;padding:12px 16px">237 models in the catalog are classics today.</p>
+        <p class="note" style="margin:0;padding:12px 16px">258 models in the catalog are classics today.</p>
       </div>
     </div>
     <p class="callout">Where the real production figure is unknown, the card carries a small <b>EST.</b> badge. Estimated entries never land above Rare: the top tiers are reserved for the 259 cars whose numbers have been checked by hand. A figure that only counts US sales, not worldwide production, can lift a card to Rare at most.</p>
+  </div>
+</section>
+
+<section class="blk" id="catalog">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">The catalog</p>
+      <h2>Is your car in the game?</h2>
+      <p class="lede">StreetCaught recognizes 3,169 models, from everyday sedans to one-offs. Search by make, model, generation or year to see whether a car is in, and what tier its card lands in.</p>
+    </div>
+    <div class="cat-box" id="catBox" data-src="assets/catalog-2a0c691126ec.json">
+      <form class="cat-search" role="search" onsubmit="return false">
+        <input id="catQ" type="search" placeholder="Try &quot;Civic 2008&quot;, &quot;Supra&quot; or &quot;F-150&quot;" aria-label="Search the car catalog" autocomplete="off" spellcheck="false">
+      </form>
+      <div class="cat-try">Try:<button type="button">Civic</button><button type="button">Supra A80</button><button type="button">911</button><button type="button">F-150</button><button type="button">Mustang 1995</button></div>
+      <div class="cat-f" id="catF" role="group" aria-label="Filter by tier"></div>
+      <p class="cat-meta" id="catMeta" aria-live="polite"></p>
+      <ul class="cat-list" id="catList"></ul>
+      <button class="cat-more" id="catMore" type="button" hidden>Show more</button>
+    </div>
   </div>
 </section>
 
@@ -1612,6 +1654,65 @@ const loop=now=>{const dt=Math.min(1/30,(now-last)/1000||0);last=now;draw(dt);ra
 const rm=matchMedia('(prefers-reduced-motion: reduce)');
 const start=()=>{cancelAnimationFrame(raf);if(rm.matches||document.hidden)draw(0);else{last=performance.now();raf=requestAnimationFrame(loop)}};
 document.addEventListener('visibilitychange',start);rm.addEventListener&&rm.addEventListener('change',start);start();})();
+</script>
+
+<script>
+(()=>{
+const box=document.getElementById('catBox');if(!box)return;
+const q=document.getElementById('catQ'),list=document.getElementById('catList'),meta=document.getElementById('catMeta'),more=document.getElementById('catMore'),fb=document.getElementById('catF');
+const T=[['Common','#AEBCCC'],['Uncommon','#1FD669'],['Rare','#3D9BFF'],['Epic','#B06BFF'],['Legendary','#FFB01F'],['Mythic','#FF2A1C'],['One-off','#FF2E9A']];
+const AL={vw:'volkswagen',chevy:'chevrolet',merc:'mercedes',benz:'mercedes',bimmer:'bmw',beemer:'bmw',lambo:'lamborghini',alfa:'alfa romeo',rr:'rolls',caddy:'cadillac',vette:'corvette',landie:'land rover',mb:'mercedes'};
+let data=null,loading=null,tier=-1,limit=12,items=[];
+const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function load(){
+  if(loading)return loading;
+  meta.textContent='Loading the catalog…';
+  loading=fetch(box.dataset.src).then(r=>r.json()).then(j=>{
+    data=j.r.map(r=>{const t=norm(r[0]+' '+r[1]+' '+r[2]);return{r,t,c:t.replace(/[\s\-.]/g,''),mk:norm(r[0]),md:norm(r[1])}});
+    data.bodies=j.b;run();
+  }).catch(()=>{loading=null;meta.textContent='The catalog could not load. Check your connection and try again.'});
+  return loading;
+}
+fb.innerHTML='<button type="button" aria-pressed="true" data-t="-1">All tiers</button>'+T.map((t,i)=>`<button type="button" aria-pressed="false" data-t="${i}" style="--c:${t[1]}">${t[0]}</button>`).join('');
+fb.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;tier=+b.dataset.t;fb.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));limit=12;load();if(data)run()});
+function hl(s,toks){let o=esc(s);toks.forEach(t=>{if(t.length<2||/^\d{4}$/.test(t))return;const re=new RegExp('('+t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig');o=o.replace(re,'<mark>$1</mark>')});return o}
+function run(){
+  if(!data)return;
+  const raw=norm(q.value.trim());
+  let toks=raw.split(/\s+/).filter(Boolean).map(t=>AL[t]||t);
+  toks=toks.join(' ').split(/\s+/);
+  if(!raw&&tier<0){items=[];list.innerHTML='';more.hidden=true;meta.textContent=data.length.toLocaleString('en-US')+' models in the catalog. Start typing.';return}
+  items=[];
+  for(const d of data){
+    const r=d.r;if(tier>=0&&r[5]!==tier)continue;
+    let ok=true,sc=0;
+    for(const t of toks){
+      if(!t)continue;
+      if(/^(19|20)\d\d$/.test(t)){const y=+t;if(y>=r[3]&&y<=r[4]){sc+=2;continue}ok=false;break}
+      const tc=t.replace(/[\-.]/g,'');
+      if(d.t.includes(t)||(tc.length>1&&d.c.includes(tc))){
+        if(d.mk===t||d.md===t)sc+=6;else if(d.mk.startsWith(t)||d.md.startsWith(t))sc+=4;else if((' '+d.t).includes(' '+t))sc+=2;else sc+=1;continue}
+      ok=false;break;
+    }
+    if(ok)items.push([sc,d]);
+  }
+  if(toks.join(''))items.sort((a,b)=>b[0]-a[0]);
+  const n=items.length;
+  meta.textContent=n?(n===1?'1 match':n.toLocaleString('en-US')+' matches'):'';
+  if(!n){list.innerHTML='<li class="cat-empty" style="display:block">Not in the catalog yet. <a href="mailto:contact@streetcaught.com?subject=Catalog%20request">Tell us which car</a> and we\'ll look at adding it. Until then, the app refuses the scan with “not in the catalog yet”.</li>';more.hidden=true;return}
+  list.innerHTML=items.slice(0,limit).map(([,d])=>{const r=d.r,t=T[r[5]];
+    const yrs=r[3]===r[4]?r[3]:r[3]+'–'+r[4];
+    const info=[r[2],yrs,data.bodies[r[6]],r[7]+' hp'+(r[8]===1?' · Electric':r[8]===2?' · Hybrid':'')].filter(Boolean).join(' · ');
+    return `<li><div><b>${hl(r[0]+' '+r[1],toks)}</b><small>${hl(info,toks)}</small></div><span class="sw" style="--c:${t[1]}">${t[0]}</span></li>`}).join('');
+  more.hidden=n<=limit;more.textContent='Show more ('+(n-limit).toLocaleString('en-US')+' left)';
+}
+let tm;q.addEventListener('input',()=>{clearTimeout(tm);limit=12;tm=setTimeout(()=>{load();run()},90)});
+q.addEventListener('focus',load,{once:true});
+more.addEventListener('click',()=>{limit+=12;run()});
+box.querySelectorAll('.cat-try button').forEach(b=>b.addEventListener('click',()=>{q.value=b.textContent;limit=12;load();run();q.focus({preventScroll:true})}));
+if('IntersectionObserver'in window){const io=new IntersectionObserver(e=>{if(e.some(x=>x.isIntersecting)){load();io.disconnect()}},{rootMargin:'400px'});io.observe(box)}
+})();
 </script>
 
 </body>

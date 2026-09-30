@@ -599,6 +599,7 @@ section.blk.alt{background:rgba(19,27,40,.55)}
         <div>
           <p class="eyebrow" style="color:var(--ink-3);margin-bottom:12px">Finish odds per scan</p>
           <div class="odds" id="odds"></div>
+          <p class="note" style="margin-top:12px;font-size:.85rem">One scan in ten gets a finish, and one in a hundred is a full Holo. A finish with a holo foil on top is the rarest roll in the game: about one card in 1,100.</p>
         </div>
       </div>
     </div>
@@ -614,7 +615,7 @@ section.blk.alt{background:rgba(19,27,40,.55)}
     <div class="grid2" style="margin-top:48px">
       <div style="display:grid;gap:14px;align-content:start">
         <h3>Full or Minimal</h3>
-        <p style="color:var(--ink-2)"><b style="color:var(--ink)">Full</b> shows everything: the car picture running edge to edge with its name printed on it, generation and year, the four stats with bars, the real specs (0-100 km/h, top speed, power, torque, redline, drive, fuel, units built) and the money block (MSRP and market range).</p>
+        <p style="color:var(--ink-2)"><b style="color:var(--ink)">Full</b> shows everything: the car picture running edge to edge with its name printed on it, generation and year, the four stats with bars, the real specs (0-100 km/h, top speed, power, torque, drive and fuel) and the money block (MSRP and market range).</p>
         <p style="color:var(--ink-2)"><b style="color:var(--ink)">Minimal</b> keeps only what you need to pick a car: the picture with the model name, the drivetrain, the four stats and the Power. That's the view for comparing five cars at a glance. Switch between them in the garage.</p>
       </div>
       <div style="display:grid;gap:14px;align-content:start">
@@ -1004,7 +1005,7 @@ const WOOD_BORDER=['#6B4526','#3A2213','#5A3A20'];
 const hasGlow=r=>RARITY_ORDER.indexOf(r)>RARITY_ORDER.indexOf('rare');
 const hasPulse=r=>RARITY_ORDER.indexOf(r)>=RARITY_ORDER.indexOf('legendaire');
 
-const EFFECT_ODDS=[['normal',94.55],['argent',2.5],['carbone',1.2],['or',1],['forge',0.4],['holo',0.35]];
+const EFFECT_ODDS=[['normal',90],['argent',4.3],['carbone',2.2],['or',1.4],['forge',1.1],['holo',1]];
 const FOIL_ODDS=0.01;
 const canFoil=e=>e!=='normal'&&e!=='holo';
 const HOLO_BG={"commune": "assets/3252c88546f2.jpg", "peu-commune": "assets/b135901df933.jpg", "rare": "assets/681dee87efde.jpg", "epique": "assets/8fc0665a22b1.jpg", "legendaire": "assets/bfb23fd8fc36.jpg", "mythique": "assets/dc1cb1794cb2.jpg", "unique": "assets/512c695d5014.jpg"};

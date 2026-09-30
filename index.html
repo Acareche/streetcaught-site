@@ -129,7 +129,7 @@ nav.top ul a:hover{color:var(--ink)}
 .cc-footer{display:flex;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid #FFFFFF1F}
 .cc-rar{flex-shrink:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:10px;font-weight:800;letter-spacing:.8px;color:var(--tint)}
 .cc-val{font-size:15px;font-weight:800;color:var(--tint)}
-.cc-letter{border:1.5px solid var(--tint);border-radius:5px;padding:0 4px;min-width:21px;text-align:center;font-size:11px;font-weight:900;letter-spacing:.5px;color:var(--tint)}
+.cc-letter{box-sizing:border-box;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;border:1.5px solid var(--tint);border-radius:4px;background:rgba(8,11,16,.62);font-size:11px;line-height:13px;font-weight:900;color:var(--tint)}
 .cc-pw{display:flex;align-items:center;gap:5px;margin-left:auto}
 .cc-est{margin-left:6px;font-size:8px;font-weight:800;letter-spacing:.6px;color:#6B7787;border:1px solid #1D242E;border-radius:3px;padding:1px 3px}
 .cc-ring,.cc-edge,.cc-ins{position:absolute;pointer-events:none;z-index:2}
@@ -478,7 +478,7 @@ section.blk.alt{background:rgba(19,27,40,.55)}
       <li class="hide-sm"><a href="#how">How it works</a></li>
       <li class="dd">
         <button class="dd-btn" type="button" aria-expanded="false" aria-controls="ddGame">Game <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="dd-panel" id="ddGame" hidden><div class="dd-col"><p class="dd-h">Collect</p><a href="#rarity"><b>Rarity</b><span>Tiers set by real production</span></a><a href="#cards"><b>Card finishes</b><span>Holo, gold, silver and more</span></a></div><div class="dd-col"><p class="dd-h">Race</p><a href="#racing"><b>Racing</b><span>Five events, simulated</span></a><a href="#campaign"><b>Campaign</b><span>Six countries, ten levels each</span></a><a href="#events"><b>Events</b><span>Two new tournaments every Monday</span></a><a href="#friends"><b>Friends</b><span>Challenge with a code</span></a></div><div class="dd-col"><p class="dd-h">Progress</p><a href="#quests"><b>Daily quests</b><span>Three a day, rewards up front</span></a><a href="#workshop"><b>Workshop</b><span>Upgrades and parts</span></a><a href="#shop"><b>Shop</b><span>Three parts a day</span></a><a href="#progress"><b>Energy & fair play</b><span>Gauges, storage, rules</span></a></div></div>
+        <div class="dd-panel" id="ddGame" hidden><div class="dd-col"><p class="dd-h">Collect</p><a href="#rarity"><b>Rarity</b><span>Tiers set by real production</span></a><a href="#cards"><b>Card finishes</b><span>Holo, gold, silver and more</span></a></div><div class="dd-col"><p class="dd-h">Race</p><a href="#racing"><b>Racing</b><span>Five events, simulated</span></a><a href="#campaign"><b>Campaign</b><span>Six countries, ten levels each</span></a><a href="#events"><b>Events</b><span>Two new tournaments every Monday</span></a><a href="#friends"><b>Friends</b><span>Challenge with a code</span></a></div><div class="dd-col"><p class="dd-h">Progress</p><a href="#quests"><b>Quests &amp; series</b><span>Three a day, 57 long-term goals</span></a><a href="#workshop"><b>Workshop</b><span>Upgrades and parts</span></a><a href="#shop"><b>Shop</b><span>Three parts a day</span></a><a href="#progress"><b>Energy & fair play</b><span>Gauges, storage, rules</span></a></div></div>
       </li>
       <li class="hide-sm"><a href="#faq">FAQ</a></li>
       <li><a class="nav-support" href="support/index.html">Support</a></li>
@@ -742,7 +742,7 @@ section.blk.alt{background:rgba(19,27,40,.55)}
 <section class="blk alt" id="quests">
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">Rule 7 · Daily quests</p>
+      <p class="eyebrow">Rule 7 · Quests &amp; series</p>
       <h2>Three quests, every day</h2>
       <p class="lede">Quests are the first tab of the app. Every day at midnight UTC you get three: one easy, one medium, one hard. There's always something you can finish in twenty minutes, and always one worth going out for.</p>
     </div>
@@ -776,6 +776,34 @@ section.blk.alt{background:rgba(19,27,40,.55)}
       <div class="step"><span class="eyebrow">Rerolls</span><h3>Three a day</h3><p>A quest you can't finish, like "Catch 3 BMW" in a neighborhood without any, can be swapped. Watch an ad for three new quests, up to three times a day. New quests start from zero.</p></div>
       <div class="step"><span class="eyebrow">Stacking</span><h3>One car, two quests</h3><p>A single catch counts for every quest it fits. An AWD Subaru moves "Catch 5 cars" and "Catch 3 AWD cars" at the same time. Makes in quests are ones you see everywhere: Toyota, Honda, Ford, BMW and the like.</p></div>
     </div>
+
+    <h3 style="margin-top:72px;margin-bottom:10px">Series: goals that never expire</h3>
+    <p class="note" style="margin:0 0 24px">Next to the daily quests, the <b>Series</b> tab holds 57 long-term collections. They never reset. Each one has tiers, every tier pays coins and XP, and a finished series turns green and drops to the bottom of the list.</p>
+    <div class="qb" aria-label="Example series">
+      <div class="qb-top"><span>Series</span><span class="qb-t">Never expire</span></div>
+      <div class="qb-q"><span class="qb-d" style="--c:var(--r-uncommon)">Brand</span><div class="qb-m"><b>Toyota</b><div class="qb-bar"><i style="width:68%"></i></div><span class="qb-p">34 / 50 cards · Tier 2 of 6</span></div><span class="qb-r">2,050 coins</span></div>
+      <div class="qb-q"><span class="qb-d" style="--c:var(--r-uncommon)">Body</span><div class="qb-m"><b>Every body style</b><div class="qb-bar"><i style="width:62%"></i></div><span class="qb-p">5 / 8 styles · Tier 2 of 2</span></div><span class="qb-r ok">Claim · 275 coins</span></div>
+      <div class="qb-q"><span class="qb-d" style="--c:var(--r-legendary)">Generation</span><div class="qb-m"><b>Corvette C6 C7 C8</b><div class="qb-bar"><i style="width:66%"></i></div><span class="qb-p">C6 ✓ · C7 ✓ · C8 —</span></div><span class="qb-r">225 coins</span></div>
+      <div class="qb-q"><span class="qb-d" style="--c:var(--r-mythic)">Luxury</span><div class="qb-m"><b>Four figures</b><div class="qb-bar"><i style="width:0%"></i></div><span class="qb-p">Catch a 1,000 hp car · 0 / 1</span></div><span class="qb-r">100 coins</span></div>
+    </div>
+
+    <div class="grid3" style="margin-top:40px">
+      <div class="step"><span class="eyebrow">Long haul</span><h3>Brands and models</h3><p>Every card counts, duplicates included: 10, 50, 100… up to 1,000 Chevrolet, Ford, Toyota, Honda and 12 other brands. Plus model lines like Civic, Corolla, Mustang or Corvette, and "every model" series for those same 16 brands.</p></div>
+      <div class="step"><span class="eyebrow">Variety</span><h3>See everything once</h3><p>Every brand in the catalog, every body style, seven countries of origin, and every car of a given rarity. Here only new ones count, so you have to go looking.</p></div>
+      <div class="step"><span class="eyebrow">Checklists</span><h3>Name the exact cars</h3><p>The three sisters (Subaru BRZ, Toyota 86, Scion FR-S), every Mustang platform from Fox to S650, every Corvette from C4 to C8. Plus electric and hybrid cars, $100k+ cars and 1,000 hp hypercars.</p></div>
+    </div>
+
+    <h3 style="margin-top:56px;margin-bottom:18px">Bigger tiers, bigger payouts</h3>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Tier target</th><th class="num">1</th><th class="num">5</th><th class="num">10</th><th class="num">50</th><th class="num">100</th><th class="num">500</th><th class="num">1,000</th></tr></thead>
+        <tbody>
+          <tr><td><b>Coins</b></td><td class="num">100</td><td class="num">325</td><td class="num">575</td><td class="num">2,050</td><td class="num">3,575</td><td class="num">12,975</td><td class="num">22,600</td></tr>
+          <tr><td><b>XP</b></td><td class="num">25</td><td class="num">80</td><td class="num">145</td><td class="num">510</td><td class="num">895</td><td class="num">3,245</td><td class="num">5,650</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Series count every car you've ever scanned, even the cards you later deleted or let go from the waiting queue. Filter the list by brand, model, rarity, country, body, fuel, luxury or variety to find the next one within reach.</p>
   </div>
 </section>
 
@@ -877,8 +905,15 @@ section.blk.alt{background:rgba(19,27,40,.55)}
 
     <h3 style="margin-top:56px;margin-bottom:18px">Garage and workshop space</h3>
     <div class="grid2">
-      <div class="step"><span class="eyebrow">Garage</span><h3>100 cars</h3><p>When the garage is full, the scan stops before anything is sent, so you never lose a charge to a full garage. Delete a card to make room: the copy is gone for good, but the car stays in your Dex.</p></div>
+      <div class="step"><span class="eyebrow">Garage</span><h3>100 cars, 3 waiting</h3><p>A catch made with a full garage isn't lost: the car goes into your Dex and the card waits in a 3-slot queue until you free up space. A fourth catch pushes out the oldest one. Nothing leaves the queue without you tapping <b>Add to my collection</b>.</p></div>
       <div class="step"><span class="eyebrow">Workshop</span><h3>100 parts</h3><p>A full workshop can't take a new part from a quest or a race reward. Delete parts you'll never fit. If the last copy is fitted to a car, the game warns you first that the car loses it.</p></div>
+    </div>
+
+    <h3 style="margin-top:56px;margin-bottom:18px">Tidying up, safely</h3>
+    <div class="grid3">
+      <div class="step"><span class="eyebrow">Batch</span><h3>Clear many at once</h3><p>Tap <b>Batch</b> in the Collection, pick cars, and delete their copies in one go. The count shows cars <i>and</i> cards, so five copies of one car read as five.</p></div>
+      <div class="step"><span class="eyebrow">Protection</span><h3>Favourite or lock</h3><p>Favourite and locked cards are always kept, even when you select them in a batch. The game tells you how many it skipped.</p></div>
+      <div class="step"><span class="eyebrow">No accidents</span><h3>A pause before delete</h3><p>The delete button unlocks after a few seconds, long enough to read what you're about to lose. There's no undo, so the wait is on purpose.</p></div>
     </div>
 
     <h3 style="margin-top:56px;margin-bottom:18px">Leveling up</h3>
@@ -912,7 +947,9 @@ section.blk.alt{background:rgba(19,27,40,.55)}
       <details><summary>The AI picked the wrong car. What now?</summary><p>Tap "Not this car". You can pick another generation of the same model, keep the card anyway, or try another photo. When the AI can't tell generations apart, it asks you to choose from up to five instead of guessing.</p></details>
       <details><summary>Does a holo or gold card race faster?</summary><p>No. Finishes are purely cosmetic. Races depend on the car's stats, its upgrades, the event and the surface.</p></details>
       <details><summary>How do you know how many cars were built?</summary><p>259 entries are checked by hand against real, worldwide production figures for each generation. For the rest, the figure is estimated and the card shows an EST. badge. Estimated cars, and cars known only by their US sales, never go above Rare.</p></details>
-      <details><summary>What happens if I delete a card?</summary><p>The card is gone, but the car stays marked as seen in your Dex forever. There's no trash to restore it from. The garage holds 100 cars, so deleting is how you make room.</p></details>
+      <details><summary>What happens if I delete a card?</summary><p>The card is gone, but the car stays marked as seen in your Dex forever. There's no trash to restore it from. The garage holds 100 cars, so deleting is how you make room. Mark a card as a favourite or lock it and it can't be deleted by mistake.</p></details>
+      <details><summary>Is there a light mode?</summary><p>Yes. In Settings you can switch between dark and light, pick an accent colour (the game keeps it readable on either theme), and choose metric or imperial units.</p></details>
+      <details><summary>What are series?</summary><p>Long-term collections in the Quests tab: brands, model lines, rarities, body styles, countries and exact checklists like every Corvette generation. They never expire, have several tiers, and each tier pays coins and XP. Every car you have ever scanned counts, even ones you deleted.</p></details>
       <details><summary>How do daily quests work?</summary><p>Three a day, one easy, one medium, one hard, reset at midnight UTC. Each shows its reward up front: coins or a random part, up to Epic. Stuck on one? Watch an ad for three new quests, up to three times a day.</p></details>
       <details><summary>Do parts really make a car faster?</summary><p>Yes. Parts change the car's real physics (power, weight, downforce, braking, tire grip), and the race simulation uses those numbers directly. A fully tuned car is roughly 11% faster for a Common and 20% for a Legendary. The right tires for the surface matter as much as raw power.</p></details>
       <details><summary>How do I get a Legendary part?</summary><p>A guaranteed one for winning level 10 of the United Kingdom, the last level of the campaign, with three stars. An event podium can also roll one. Ordinary races and the Shop stop at Epic.</p></details>
@@ -1102,8 +1139,7 @@ function carCardHTML(car,{effect='normal',variant='full',holoFamily,holoSeed=0,f
       ${full?`<div class="cc-block">
         ${row(['0-100 km/h',`${s.zeroTo100s.toFixed(1)}s`],['Top',`${s.topSpeedKmh}`])}
         ${row(['Power',`${s.powerHp} hp`],['Torque',`${s.torqueNm} Nm`])}
-        ${row(['Redline',s.redlineRpm>0?`${s.redlineRpm}`:'—'],['Drive',DRIVE_LABEL[s.drivetrain]])}
-        ${row(['Fuel',FUEL_LABEL[car.fuel]||car.fuel],['Built',car.production.units.toLocaleString('en-US')])}
+        ${row(['Drive',DRIVE_LABEL[s.drivetrain]],['Fuel',FUEL_LABEL[car.fuel]||car.fuel])}
       </div><div class="cc-block">
         <div class="cc-mrow"><span class="cc-sl">MSRP</span><span class="cc-sv">${money(car.prices.msrpUsd)}</span></div>
         <div class="cc-mrow"><span class="cc-sl">Market</span><span class="cc-sv">${money(car.prices.marketLowUsd)}–${money(car.prices.marketHighUsd)}</span></div>
@@ -1115,7 +1151,7 @@ function carCardHTML(car,{effect='normal',variant='full',holoFamily,holoSeed=0,f
         <span class="cc-pw"><span class="cc-letter">${powerLetter(car.cardValue)}</span><span class="cc-val">${car.cardValue}</span></span>
       </div>
     </div>
-    ${glow?HALO.map(r=>`<div class="cc-ring" style="inset:${-r.out}px;border-radius:${20+r.out}px;border:${r.width}px solid ${RARITY_HALO[car.rarity]}${r.alpha}"></div>`).join('')+`<div class="cc-edge"></div><div class="cc-ins" style="inset:${bw+1}px;border-color:${RARITY_GLOW[car.rarity]}99"></div>`:''}
+    ${glow?HALO.map(r=>`<div class="cc-ring" style="inset:${-r.out}px;border-radius:${20+r.out}px;border:${r.width}px solid ${RARITY_HALO[car.rarity]}${r.alpha}"></div>`).join('')+`<div class="cc-edge"></div>`:''}
   </div>`;
 }
 

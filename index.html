@@ -420,7 +420,7 @@ section.blk.alt .step,section.blk.alt .stat,section.blk.alt .gauge,section.blk.a
 .rt-wx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
 .rt-mark{position:absolute;opacity:.92}
 @media (max-width:720px){.rt-pickers{justify-items:start}}
-.cc-band.cc-wide{-webkit-mask-image:linear-gradient(110deg,transparent 38.5%,rgba(0,0,0,.35) 43.5%,#000 50%,rgba(0,0,0,.35) 56.5%,transparent 61.5%);mask-image:linear-gradient(110deg,transparent 38.5%,rgba(0,0,0,.35) 43.5%,#000 50%,rgba(0,0,0,.35) 56.5%,transparent 61.5%)}
+.cc-band.cc-wide{-webkit-mask-image:linear-gradient(110deg,transparent calc(var(--c,-999px) - var(--bw2)*1.5),rgba(0,0,0,.35) calc(var(--c,-999px) - var(--bw2)*.75),#000 var(--c,-999px),rgba(0,0,0,.35) calc(var(--c,-999px) + var(--bw2)*.75),transparent calc(var(--c,-999px) + var(--bw2)*1.5));mask-image:linear-gradient(110deg,transparent calc(var(--c,-999px) - var(--bw2)*1.5),rgba(0,0,0,.35) calc(var(--c,-999px) - var(--bw2)*.75),#000 var(--c,-999px),rgba(0,0,0,.35) calc(var(--c,-999px) + var(--bw2)*.75),transparent calc(var(--c,-999px) + var(--bw2)*1.5))}
 .logo-img{height:38px;width:auto;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))}
 footer .logo-img{height:30px}
 
